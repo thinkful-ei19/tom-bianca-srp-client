@@ -1,5 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import { Field, reduxForm, focus, reset } from 'redux-form';
+import Input from './input';
 import requiresLogin from './requires-login';
 import {fetchProtectedData} from '../actions/protected-data';
 import {} from '../actions/questions';
@@ -10,14 +12,6 @@ export class Dashboard extends React.Component {
     }
 
     render() {
-        let questions = this.props.protectedData;
-        console.log(this.props);
-        console.log(questions);
-        const data = questions.map((question, index) => (
-            <li key={index}>
-                {question.title}
-            </li>
-        ));
         return (
             <div className="dashboard">
                 <div className="dashboard-username">
@@ -25,7 +19,7 @@ export class Dashboard extends React.Component {
                 </div>
                 <div className="dashboard-name">Name: {this.props.name}</div>
                 <div className="dashboard-protected-data">
-                    Protected data: {data}
+                    Protected data: {this.props.protectedData}
                 </div>
             </div>
         );

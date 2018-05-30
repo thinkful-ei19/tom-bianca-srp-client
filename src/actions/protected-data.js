@@ -21,7 +21,7 @@ export const fetchProtectedData = () => (dispatch, getState) => {
             // Provide our auth token as credentials
             Authorization: `Bearer ${authToken}`
         }
-  })        .then(res => normalizeResponseErrors(res))
+  })    .then(res => normalizeResponseErrors(res))
         .then(res => res.json())
         .then((data) => dispatch(fetchProtectedDataSuccess(data)))
         .catch(err => {

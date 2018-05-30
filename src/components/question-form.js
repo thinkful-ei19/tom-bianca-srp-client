@@ -1,41 +1,49 @@
 import React from 'react';
 import {connect} from 'react-redux'
-import requiresLogin from './requires-login';
 import {submittedAnswer, nextQuestion, answerQuestion} from '../actions/questions';
 import {fetchProtectedData} from '../actions/protected-data';
+import { Field, reduxForm, focus } from 'redux-form';
+import { registerUser } from '../actions/users';
+import { login } from '../actions/auth';
+import Input from './input';
+import { required, nonEmpty, matches, length, isTrimmed } from '../validators';
+import { QuestionCard } from './question-card';
 
 
 
 export class QuestionForm extends React.Component{
-    componentDidMount() {
-        this.props.dispatch(fetchProtectedData());
-    }
-    onSubmit(value){
+    onSubmit(value) {
+        const  {answer}  = value;
+        console.log(JSON.stringify(value));
         return this.props.dispatch(answerQuestion(value));
     }
-    render(){
-        console.log(this.props);
-        return(
-            <div className="question-form">
-                        <form className='question'
-                        onSubmit={e=>{
-                            e.preventDefault();
-                                e.target.answer.value='';}}>
-                            <input type='text' name="answer"/>
-                            <button className="submit">Submit</button>
-                            <button className="next">Next Question</button>
-                        </form>
-            
-            </div>
-        )
+    render() {
+        return (
+            <form
+                className="question-form"
+                onSubmit={this.props.handleSubmit(value =>
+                    this.onSubmit(value.answer.toLowerCase().trim())
+                )}
+                >
+                <label htmlFor="question-card">Valyrian Word = '{this.props.question}'</label>
+                <Field
+                    component={Input}
+                    type="text"
+                    name="answer"
+                    placeholder="ex: tail"
+                    validate={[required, nonEmpty, isTrimmed]}
+                />
+                <button
+                    type="submit"
+                    disabled={this.props.pristine || this.props.submitting}>
+                    Enter
+                </button>
+            </form>
+        );
     }
 }
-const mapStateToProps = state => {
-    return {
-        questions: state.protectedData.title,
-        answer: state.protectedData.content
 
-    };
-};
-
-export default requiresLogin(connect(mapStateToProps)(QuestionForm));
+export default reduxForm({
+    form: 'question', onSubmitFail: (errors, dispatch) =>
+        dispatch(focus('question','answer'))
+})(QuestionForm);

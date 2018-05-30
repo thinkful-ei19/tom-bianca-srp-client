@@ -16,9 +16,9 @@ export const answerQuestionError = (error) => ({
     error
 })
 export const SUBMITTED_ANSWER = 'SUBMITTED_ANSWER';
-export const submittedAnswer = answer => ({
+export const submittedAnswer = data => ({
     type: SUBMITTED_ANSWER,
-    answer
+    data
 });
 
 export const ANSWER_QUESTION_CORRECTLY ='ANSWER_QUESTION_CORRECTLY';
@@ -37,11 +37,16 @@ export const nextQuestion = data => ({
     type: NEXT_QUESTION,
     data
 })
-export const answerQuestion = () => dispatch => {
+export const answerQuestion = (data) => (dispatch, getState) => {
     dispatch(answerQuestionRequest());
-    return fetch(`${API_BASE_URL}/questions`, {
-        method: 'PUT',
-        // headers: { Authorization: `Bearer${authToken}`}
+    const authToken = getState().auth.authToken;
+    const userId = getState().auth.currentUser.id;
+    console.log(userId);
+    return fetch(`${API_BASE_URL}/questions/${userId}`, {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: { Authorization: `Bearer ${authToken}`}
+        
     })
         .then(res => {
             if(!res.ok){

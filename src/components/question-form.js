@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux'
+import requiresLogin from './requires-login';
 import {submittedAnswer, nextQuestion} from '../actions/questions';
 import {fetchProtectedData} from '../actions/protected-data';
 
@@ -9,7 +10,9 @@ export class QuestionForm extends React.Component{
     componentDidMount() {
         this.props.dispatch(fetchProtectedData());
     }
-    
+    onSubmit(value){
+        return this.props.dispatch(submittedAnswer(value));
+    }
     render(){
         console.log(this.props);
         return(
@@ -19,7 +22,8 @@ export class QuestionForm extends React.Component{
                             e.preventDefault();
                                 e.target.answer.value='';}}>
                             <input type='text' name="answer"/>
-                            <button type='submit'>Submit</button>
+                            <button className="submit">Submit</button>
+                            <button className="next">Next Question</button>
                         </form>
             
             </div>
@@ -27,12 +31,11 @@ export class QuestionForm extends React.Component{
     }
 }
 const mapStateToProps = state => {
-    const {currentUser} = state.auth;
     return {
-        username: state.auth.currentUser.username,
-        name: `${currentUser.fullname}`,
-        protectedData: state.protectedData.data
+        questions: state.protectedData.title,
+        answer: state.protectedData.content
+
     };
 };
 
-export default connect(mapStateToProps)(QuestionForm)
+export default requiresLogin(connect(mapStateToProps)(QuestionForm));

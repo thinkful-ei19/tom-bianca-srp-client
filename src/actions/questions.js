@@ -32,9 +32,9 @@ export const answerQuestionIncorrectly = data => ({
     type: ANSWER_QUESTION_INCORRECTLY,
     data
 });
-export const SKIP_QUESTION = 'SKIP_QUESTION';
-export const skipQuestion = data => ({
-    type: SKIP_QUESTION,
+export const NEXT_QUESTION = 'NEXT_QUESTION';
+export const nextQuestion = data => ({
+    type: NEXT_QUESTION,
     data
 })
 export const answerQuestion = () => dispatch => {

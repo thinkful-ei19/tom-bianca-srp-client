@@ -5,6 +5,7 @@ import Input from './input';
 import requiresLogin from './requires-login';
 import {fetchProtectedData} from '../actions/protected-data';
 import {submittedAnswer} from '../actions/questions';
+import { QuestionForm } from './question-form';
 
 
 
@@ -20,17 +21,21 @@ export class Dashboard extends React.Component {
         event.target.reset();
       }
     render() {
+    
         return (
+            
             <div className="dashboard">
                 <div className="dashboard-username">
                     Username: {this.props.username}
                 </div>
-                <div className="dashboard-name">Name: {this.props.name}</div>
+                {/* <div className="dashboard-name">Name: {this.props.name}</div> */}
                 <div className="dashboard-protected-data">
 
                     Protected data: {this.props.protectedData}
-
+                    <QuestionForm/>
                 </div>
+                
+
             </div>
         );
         // console.log(input.value);

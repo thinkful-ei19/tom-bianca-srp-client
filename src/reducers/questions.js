@@ -1,4 +1,4 @@
-import { ANSWER_QUESTION_REQUEST, SUBMITTED_ANSWER, ANSWER_QUESTION_CORRECTLY, ANSWER_QUESTION_CORRECTLY, ANSWER_QUESTION_INCORRECTLY, ANSWER_QUESTION_ERROR } from '../actions/questions';
+import { ANSWER_QUESTION_REQUEST, SUBMITTED_ANSWER, ANSWER_QUESTION_CORRECTLY, ANSWER_QUESTION_CORRECTLY, ANSWER_QUESTION_INCORRECTLY, ANSWER_QUESTION_ERROR, NEXT_QUESTION } from '../actions/questions';
 
 const initialState = {
     data: null,
@@ -33,6 +33,11 @@ export function questionReducer(state = initialState, action) {
             loading: false,
             error
         })
+    }
+    else if(action.type === NEXT_QUESTION){
+        return Object.assign({}, state,{
+            data: data
+        } )
     }
     return state;
 }

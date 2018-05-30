@@ -12,25 +12,26 @@ export class QuestionForm extends React.Component{
     
     render(){
         console.log(this.props);
-    return(
-        <div className="question-form">
-                    <form className='question'
-                    onSubmit={e=>{
-                        e.preventDefault();
-                            e.target.answer.value='';}}>
-                        <input type='text' name="answer"/>
-                        <button type='submit'>Submit</button>
-                    </form>
-         
-        </div>
-    )
+        return(
+            <div className="question-form">
+                        <form className='question'
+                        onSubmit={e=>{
+                            e.preventDefault();
+                                e.target.answer.value='';}}>
+                            <input type='text' name="answer"/>
+                            <button type='submit'>Submit</button>
+                        </form>
+            
+            </div>
+        )
     }
-    }
+}
 const mapStateToProps = state => {
+    const {currentUser} = state.auth;
     return {
-        title: state.protectedData.data.title,
-        content: state.protectedData.data.content,
-       
+        username: state.auth.currentUser.username,
+        name: `${currentUser.fullname}`,
+        protectedData: state.protectedData.data
     };
 };
 

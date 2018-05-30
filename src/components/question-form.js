@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux'
 import requiresLogin from './requires-login';
-import {submittedAnswer, nextQuestion} from '../actions/questions';
+import {submittedAnswer, nextQuestion, answerQuestion} from '../actions/questions';
 import {fetchProtectedData} from '../actions/protected-data';
 
 
@@ -11,7 +11,7 @@ export class QuestionForm extends React.Component{
         this.props.dispatch(fetchProtectedData());
     }
     onSubmit(value){
-        return this.props.dispatch(submittedAnswer(value));
+        return this.props.dispatch(answerQuestion(value));
     }
     render(){
         console.log(this.props);

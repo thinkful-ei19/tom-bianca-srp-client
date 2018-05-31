@@ -14,7 +14,7 @@ import { QuestionCard } from './question-card';
 export class QuestionForm extends React.Component{
     onSubmit(value) {
         const  {answer}  = value;
-        console.log(JSON.stringify(value));
+        console.log(value);
         return this.props.dispatch(answerQuestion(value));
     }
     render() {

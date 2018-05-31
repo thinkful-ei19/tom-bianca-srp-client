@@ -1,7 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux'
-import {submittedAnswer, nextQuestion, answerQuestion} from '../actions/questions';
-import {fetchProtectedData} from '../actions/protected-data';
+import { fetchProtectedData, submittedAnswer, nextQuestion, answerQuestion} from '../actions/protected-data';
 import { Field, reduxForm, focus } from 'redux-form';
 import { registerUser } from '../actions/users';
 import { login } from '../actions/auth';
@@ -25,7 +24,7 @@ export class QuestionForm extends React.Component{
                     this.onSubmit(value.answer.toLowerCase().trim())
                 )}
                 >
-                <label htmlFor="question-card">Valyrian Word = '{this.props.question}'</label>
+                <label htmlFor="question-card">Valyrian Word = {this.props.question}</label>
                 <Field
                     component={Input}
                     type="text"

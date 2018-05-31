@@ -30,3 +30,45 @@ export const fetchProtectedData = () => (dispatch, getState) => {
             dispatch(fetchProtectedDataError(err));
         });
 };
+
+export const ANSWER_QUESTION_REQUEST = 'ANSWER_QUESTION_REQUEST';
+export const answerQuestionRequest = () => ({
+    type: ANSWER_QUESTION_REQUEST
+})
+
+export const SUBMITTED_ANSWER = 'SUBMITTED_ANSWER';
+export const submittedAnswer = data => ({
+    type: SUBMITTED_ANSWER,
+    data
+});
+
+export const ANSWER_QUESTION_ERROR = 'ANSWER_QUESTION_ERROR';
+export const answerQuestionError = (error) => ({
+    type: ANSWER_QUESTION_ERROR,
+    error
+})
+
+export const answerQuestion = (data) => (dispatch, getState) => {
+    dispatch(answerQuestionRequest());
+    const authToken = getState().auth.authToken;
+    const userId = getState().auth.currentUser.id;
+    console.log(userId);
+    console.log(data);
+    return fetch(`${API_BASE_URL}/questions`, {
+        method: 'PUT',
+        body: JSON.stringify({ data }),
+        headers: {
+            'Authorization': `Bearer ${authToken}`,
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+    })
+        .then(res => {
+            if (!res.ok) {
+                return Promise.reject(res.statusText);
+            }
+            return res.json();
+        })
+        .then(res => dispatch(submittedAnswer(res)))
+        .catch(err => dispatch(answerQuestionError(err)));
+}

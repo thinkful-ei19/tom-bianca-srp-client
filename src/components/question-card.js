@@ -7,14 +7,9 @@ export function QuestionCard(props) {
     return (
         <div className="home">
             <h2>Translate into English</h2>
-            
-            <QuestionForm question={props.question}/>>
+            <QuestionForm question={props.question}/>
         </div>
     );
 }
 
-const mapStateToProps = state => ({
-    loggedIn: state.auth.currentUser !== null,
-});
-
-export default connect(mapStateToProps)(QuestionCard);
+export default connect()(QuestionCard);

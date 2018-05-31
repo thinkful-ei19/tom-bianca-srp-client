@@ -1,7 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux'
-import {submittedAnswer, nextQuestion, answerQuestion} from '../actions/questions';
-import {fetchProtectedData} from '../actions/protected-data';
+import { fetchProtectedData, submittedAnswer, nextQuestion, answerQuestion} from '../actions/protected-data';
 import { Field, reduxForm, focus } from 'redux-form';
 import { registerUser } from '../actions/users';
 import { login } from '../actions/auth';
@@ -14,7 +13,7 @@ import { QuestionCard } from './question-card';
 export class QuestionForm extends React.Component{
     onSubmit(value) {
         const  {answer}  = value;
-        console.log(JSON.stringify(value));
+        console.log(value);
         return this.props.dispatch(answerQuestion(value));
     }
     render() {

@@ -14,13 +14,6 @@ export class Dashboard extends React.Component {
     componentDidMount() {
         this.props.dispatch(fetchProtectedData());
     }
-    submit(event) {
-        event.preventDefault();
-        this.props.dispatch(submittedAnswer({
-          answer: event.target.answer.value,
-        }));
-        event.target.reset();
-      }
     render() {
     
         return (
@@ -30,8 +23,6 @@ export class Dashboard extends React.Component {
                     Username: {this.props.username}
                 </div>
                 <div className="dashboard-protected-data">
-
-                    Protected data: {this.props.protectedData}
                     <QuestionCard question={this.props.protectedData} />
                 </div>
                 

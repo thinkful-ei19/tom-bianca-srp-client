@@ -24,7 +24,7 @@ export class QuestionForm extends React.Component{
                     this.onSubmit(value.answer.toLowerCase().trim())
                 )}
                 >
-                <label htmlFor="question-card">Valyrian Word = '{this.props.question}'</label>
+                <label htmlFor="question-card">Valyrian Word = {this.props.question}</label>
                 <Field
                     component={Input}
                     type="text"

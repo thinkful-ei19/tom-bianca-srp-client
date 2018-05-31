@@ -14,7 +14,8 @@ export class QuestionForm extends React.Component{
     onSubmit(value) {
         const  {answer}  = value;
         console.log(value);
-        return this.props.dispatch(answerQuestion(value));
+        this.props.dispatch(answerQuestion(value));
+        return this.props.dispatch(fetchProtectedData());
     }
     render() {
         return (

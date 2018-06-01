@@ -1,6 +1,6 @@
 import React from 'react';
-import {connect} from 'react-redux'
-import { fetchProtectedData, submittedAnswer, nextQuestion, answerQuestion} from '../actions/protected-data';
+import { connect } from 'react-redux'
+import { fetchProtectedData, submittedAnswer, nextQuestion, answerQuestion } from '../actions/protected-data';
 import { Field, reduxForm, focus } from 'redux-form';
 import { registerUser } from '../actions/users';
 import { login } from '../actions/auth';
@@ -10,11 +10,15 @@ import { QuestionCard } from './question-card';
 
 
 
-export class QuestionForm extends React.Component{
+export class QuestionForm extends React.Component {
+    componentWillUpdate() {
+        this.props.dispatch(fetchProtectedData())
+    }
     onSubmit(value) {
-        const  {answer}  = value;
+        const { answer } = value;
         console.log(value);
         return this.props.dispatch(answerQuestion(value));
+
     }
     render() {
         return (
@@ -23,7 +27,8 @@ export class QuestionForm extends React.Component{
                 onSubmit={this.props.handleSubmit(value =>
                     this.onSubmit(value.answer.toLowerCase().trim())
                 )}
-                >
+            >
+
                 <label htmlFor="question-card">Valyrian Word = {this.props.question}</label>
                 <Field
                     component={Input}
@@ -32,6 +37,7 @@ export class QuestionForm extends React.Component{
                     placeholder="ex: tail"
                     validate={[required, nonEmpty, isTrimmed]}
                 />
+                <br/>
                 <button
                     type="submit"
                     disabled={this.props.pristine || this.props.submitting}>
@@ -44,5 +50,5 @@ export class QuestionForm extends React.Component{
 
 export default reduxForm({
     form: 'question', onSubmitFail: (errors, dispatch) =>
-        dispatch(focus('question','answer'))
+        dispatch(focus('question', 'answer'))
 })(QuestionForm);

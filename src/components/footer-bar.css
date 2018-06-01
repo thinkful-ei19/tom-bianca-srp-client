@@ -1,0 +1,44 @@
+div .footer-item {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+div .footer-item-true {
+    background-color: green;
+    color: #CFFFFF;
+    text-shadow: 0px 0px 2px rgba(0, 255, 255, 0.5);
+    width: 25%;
+    text-align: center;
+    margin-left: 190px;
+    border-radius: 10vh;
+    margin-top: 4vh;
+}
+
+div .footer-item-false {
+    background-color: red;
+    color: #CFFFFF;
+    text-shadow: 0px 0px 2px rgba(0, 255, 255, 0.5);
+    width: 25%;
+    text-align: center;
+    margin-left: 190px;
+    border-radius: 10vh;
+    margin-top: 4vh;
+}
+
+/* .active {
+    background-color: #6A5ACD;
+} */
+
+div.right {
+    position: absolute;
+    right: 10px;
+    top: 0px;
+}

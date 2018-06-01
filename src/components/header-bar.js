@@ -20,36 +20,35 @@ export class HeaderBar extends React.Component {
                 <button onClick={() => this.logOut()}>Log out</button>
             );
         }
-        return  <nav className="nav-bar">
-                    <ul className="nav">
-                        <li className="login">
-                            {this.props.loggedIn ? null : <Link to="/login" className="nav-item">
-                                Log In
-                        </Link>}
-                        </li>
-                        <li>
-                            {this.props.loggedIn ? <Link to="/dashboard" className="nav-item">
-                                <img className='sigil' src={sigil} alt="A red dragon with three heads"/>
-                            </Link> : null}
-                        </li>
-                        <li>
-                            {this.props.loggedIn ? null : <Link to="/" className="nav-item">
-                                Home
-                        </Link>}
-                        </li>
-                        <li>
-                            <Link to="/about" className="nav-item">
-                                About
-                        </Link>
-                        </li>
-                        <li className="right">
-                            <button className="logout-button" onClick={() => this.logOut()} style={this.props.loggedIn ? { display: 'inline-block' } : { display: 'none' }}>
-                                {' '}
-                                Log Out{' '}
-                            </button>{' '}
-                        </li>
-                    </ul>
-                </nav>;
+        return <nav className="nav-bar">
+            <ul className="nav">
+                <li className="login">
+                    {this.props.loggedIn ? null : <Link to="/login" className="nav-item">
+                        Log In
+                </Link>}
+                </li>
+                <li>
+                    {this.props.loggedIn ? 
+                        <img className='sigil' src={sigil} alt="A red dragon with three heads"> 
+                    </img>: null}
+                </li>
+                <li>
+                    {this.props.loggedIn ? null : <Link to="/" className="nav-item">
+                        Home
+                  </Link>}
+                </li>
+                <li>
+                    <Link to="/about" className="nav-item">
+                        About
+                  </Link>
+                </li>
+                <li className="right">
+                    <button className="logout-button" onClick={() => this.logOut()} style={this.props.loggedIn ? { display: 'inline-block' } : { display: 'none' }}>
+                        Log Out
+                    </button>
+                </li>
+            </ul>
+        </nav>;
     }
 }
 

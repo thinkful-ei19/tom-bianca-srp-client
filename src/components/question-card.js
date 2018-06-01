@@ -13,7 +13,7 @@ export function QuestionCard(props) {
                 <div className="footer">
                     <div>
                         {props.response.correct === true ? <div className="footer-item-true">
-                            Correct <audio autoplay="true">
+                            Correct <audio autoPlay="true">
                                 <source src={sound} type="audio/wav" />>
                                     </audio>
                         </div> : null}

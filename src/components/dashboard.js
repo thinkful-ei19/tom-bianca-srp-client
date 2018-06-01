@@ -23,7 +23,6 @@ export class Dashboard extends React.Component {
             <div className="dash">
                 <HeaderBar />
                 <div className="dashboard">
-
                     <div className="dashboard-username">
                         Welcome: {this.props.name}
                         <br/>

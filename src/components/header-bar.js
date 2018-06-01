@@ -29,7 +29,7 @@ export class HeaderBar extends React.Component {
                 </li>
                 <li>
                     {this.props.loggedIn ? 
-                        <img className='sigil' src={sigil}> 
+                        <img className='sigil' src={sigil} alt="A red dragon with three heads"> 
                     </img>: null}
                 </li>
                 <li>

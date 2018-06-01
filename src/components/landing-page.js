@@ -15,7 +15,7 @@ export function LandingPage(props) {
     return (
         <div className="gif">
             <div className="home">
-                <h2>DuoDragons<img className="landing-sigil" src={sigil} /> </h2>
+                <h2>DuoDragons<img className="landing-sigil" src={sigil} alt="A three headed red dragon"/> </h2>
                 {/* <img src={logo}/> */}
                 <Link to="/login">Log In</Link>
                 <br /><br />

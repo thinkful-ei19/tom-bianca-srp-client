@@ -7,6 +7,4 @@ describe('<RegistrationForm />', () => {
     it('Renders without crashing', () => {
         shallow(<RegistrationForm />);
     });
-
-    
 });

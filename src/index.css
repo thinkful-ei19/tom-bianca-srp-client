@@ -1,15 +1,7 @@
-body,html {
-  font-family: museo-sans-rounded,sans-serif!important;
-  background-image: url('./assets/img/Dragonstone.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
+body.noScroll {
+    overflow: hidden;
 }
 
-.header-bar {
-    /* background-color: red; */
-}
-
-.sigil {
-    height: 5em;
+h2 {
+  margin: 0;
 }

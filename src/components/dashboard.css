@@ -1,0 +1,25 @@
+.dash {
+    width: 100vw;
+    height: 100vh;
+}
+
+.dashboard {
+    font-family: MedievalSharp;
+    background-image: url('../assets/img/Dragonstone.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 100vw;
+    height: 100vh;
+}
+
+body {
+    margin: 0;
+}
+
+.home {
+    /* background-color: red; */
+    /* padding: 0; */
+    /* width: 25%; */
+    font-size: 3vh;
+}

@@ -10,21 +10,21 @@ export function QuestionCard(props) {
             <h2>Translate into English</h2>
             <QuestionForm question={props.question} />
             <div className="footer-bar">
-                <ul className="footer">
-                    <li>
+                <div className="footer">
+                    <div>
                         {props.response.correct === true ? <div className="footer-item-true">
                             Correct <audio autoplay="true">
                                 <source src={sound} type="audio/wav" />>
                                     </audio>
                         </div> : null}
-                    </li>
-                    <li>
+                    </div>
+                    <div>
                         {props.response.correct === false ? <div className="footer-item-false">
                             Incorrect
                     </div> : null}
-                    </li>
-                </ul>
-            </div>;
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }

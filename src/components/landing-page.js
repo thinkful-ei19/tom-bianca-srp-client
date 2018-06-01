@@ -15,14 +15,16 @@ export function LandingPage(props) {
     }
 
     return (
-     
-        <div className="home">
-            <h2>DuoDragons<img className="landing-sigil" src={sigil}/> </h2>
-            {/* <img src={logo}/> */}
-            <Link to="/login">Log In</Link>
-            <br /><br />
-            <Link to="/register">Register</Link>
-        </div>
+     <div className="gif">
+            <div className="home">
+                <h2>DuoDragons<img className="landing-sigil" src={sigil} /> </h2>
+                {/* <img src={logo}/> */}
+                <Link to="/login">Log In</Link>
+                <br /><br />
+                <Link to="/register">Register</Link>
+            </div>
+     </div>
+
     );
 }
 

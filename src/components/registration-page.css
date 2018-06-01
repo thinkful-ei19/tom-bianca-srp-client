@@ -1,4 +1,4 @@
-.login {
+.register {
     font-family: MedievalSharp;
     background-image: url('../assets/img/Dragonstone.jpg');
     background-size: cover;
@@ -12,7 +12,7 @@ body.noScroll {
     overflow: hidden;
 }
 
-body {
-  margin: 0;
-  padding: 0;
+html {
+    margin: 0px;
+    padding: 0;
 }

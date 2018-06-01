@@ -8,9 +8,10 @@ import sigil from '../assets/img/sigil.jpg';
 
 export class FooterBar extends React.Component {
     render() {
-        console.log(this.props.response)
-        return <div className="footer-bar">
-        </div>;
+        return 
+        
+        // <div className="footer-bar">
+        // // </div>
     }
 }
 

@@ -1,4 +1,9 @@
-.login {
+.dash {
+    width: 100vw;
+    height: 100vh;
+}
+
+.dashboard {
     font-family: MedievalSharp;
     background-image: url('../assets/img/Dragonstone.jpg');
     background-size: cover;
@@ -8,11 +13,13 @@
     height: 100vh;
 }
 
-body.noScroll {
-    overflow: hidden;
+body {
+    margin: 0;
 }
 
-body {
-  margin: 0;
-  padding: 0;
+.home {
+    /* background-color: red; */
+    /* padding: 0; */
+    /* width: 25%; */
+    font-size: 3vh;
 }

@@ -8,6 +8,7 @@ import { QuestionForm } from './question-form';
 import { QuestionCard } from './question-card';
 import FooterBar from './footer-bar';
 import HeaderBar from './header-bar';
+import './dashboard.css';
 
 
 export class Dashboard extends React.Component {
@@ -16,16 +17,18 @@ export class Dashboard extends React.Component {
     }
     render() {
         return (
-
-            <div className="dashboard">
+            <div className="dash">
                 <HeaderBar />
-                <div className="dashboard-username">
-                    Username: {this.props.username}
+                <div className="dashboard">
+
+                    <div className="dashboard-username">
+                        Username: {this.props.username}
+                    </div>
+                    <div className="dashboard-protected-data">
+                        <QuestionCard question={this.props.protectedData} response={this.props.response} />
+                    </div>
+                    {/* <FooterBar response={this.props.response} /> */}
                 </div>
-                <div className="dashboard-protected-data">
-                    <QuestionCard question={this.props.protectedData} response={this.props.response} />
-                </div>
-                <FooterBar response={this.props.response} />
             </div>
 
         );

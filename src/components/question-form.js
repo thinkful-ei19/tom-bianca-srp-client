@@ -28,6 +28,7 @@ export class QuestionForm extends React.Component {
                     this.onSubmit(value.answer.toLowerCase().trim())
                 )}
             >
+
                 <label htmlFor="question-card">Valyrian Word = {this.props.question}</label>
                 <Field
                     component={Input}
@@ -36,6 +37,7 @@ export class QuestionForm extends React.Component {
                     placeholder="ex: tail"
                     validate={[required, nonEmpty, isTrimmed]}
                 />
+                <br/>
                 <button
                     type="submit"
                     disabled={this.props.pristine || this.props.submitting}>

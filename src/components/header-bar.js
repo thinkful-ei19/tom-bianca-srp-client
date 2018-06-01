@@ -12,9 +12,9 @@ export class HeaderBar extends React.Component {
         this.props.dispatch(clearAuth());
         clearAuthToken();
     }
-    componentDidMount() {
-        this.props.dispatch(fetchProtectedData());
-    }
+    // componentDidMount() {
+    //     this.props.dispatch(fetchProtectedData());
+    // }
     componentWillUpdate() {
         this.props.dispatch(fetchDragons());
     }

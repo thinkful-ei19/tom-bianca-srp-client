@@ -13,22 +13,23 @@ import { QuestionCard } from './question-card';
 export class QuestionForm extends React.Component {
 
     // sets timer to reset the correct/incorrect dev so it updates & plays sound on each submit
-    timer() {
-        this.refreshInterval = setTimeout(
-            () => this.props.dispatch(clearResponse()),
-            2000// five secs
-        );  
-    } 
+    refreshInterval = setInterval(
+        () => this.props.dispatch(clearResponse()),
+        3500// 3.5 secs
+    );
 
 
     componentWillUpdate() {
         this.props.dispatch(fetchProtectedData())
+        if (this.refreshInterval) {
+            return;
+        }
+
+        clearInterval(this.refreshInterval);
+
     }
-
-
     onSubmit(value) {
-        this.props.dispatch(answerQuestion(value));
-        this.timer();
+        return this.props.dispatch(answerQuestion(value));
     }
 
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { fetchProtectedData, submittedAnswer, nextQuestion, answerQuestion } from '../actions/protected-data';
+import { fetchProtectedData, submittedAnswer, nextQuestion, answerQuestion, clearResponse } from '../actions/protected-data';
 import { Field, reduxForm, focus } from 'redux-form';
 import { registerUser } from '../actions/users';
 import { login } from '../actions/auth';
@@ -11,15 +11,28 @@ import { QuestionCard } from './question-card';
 
 
 export class QuestionForm extends React.Component {
+
+    // sets timer to reset the correct/incorrect dev so it updates & plays sound on each submit
+    refreshInterval = setInterval(
+        () => this.props.dispatch(clearResponse()),
+        2000// five secs
+    );
+
+
     componentWillUpdate() {
         this.props.dispatch(fetchProtectedData())
-    }
-    onSubmit(value) {
-        const { answer } = value;
-        console.log(value);
-        return this.props.dispatch(answerQuestion(value));
+        if (this.refreshInterval) {
+            return;
+        }
+
+        clearInterval(this.refreshInterval);
 
     }
+    onSubmit(value) {
+        return this.props.dispatch(answerQuestion(value));
+    }
+
+
     render() {
         return (
             <form
@@ -37,7 +50,7 @@ export class QuestionForm extends React.Component {
                     placeholder="ex: tail"
                     validate={[required, nonEmpty, isTrimmed]}
                 />
-                <br/>
+                <br />
                 <button
                     type="submit"
                     disabled={this.props.pristine || this.props.submitting}>

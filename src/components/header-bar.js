@@ -28,9 +28,9 @@ export class HeaderBar extends React.Component {
                 </Link>}
                 </li>
                 <li>
-                    {this.props.loggedIn ? <Link to="/dashboard" className="nav-item">
-                        <img className='sigil' src={sigil} />
-                    </Link> : null}
+                    {this.props.loggedIn ? 
+                        <img className='sigil' src={sigil}> 
+                    </img>: null}
                 </li>
                 <li>
                     {this.props.loggedIn ? null : <Link to="/" className="nav-item">
@@ -44,9 +44,8 @@ export class HeaderBar extends React.Component {
                 </li>
                 <li className="right">
                     <button className="logout-button" onClick={() => this.logOut()} style={this.props.loggedIn ? { display: 'inline-block' } : { display: 'none' }}>
-                        {' '}
-                        Log Out{' '}
-                    </button>{' '}
+                        Log Out
+                    </button>
                 </li>
             </ul>
         </nav>;

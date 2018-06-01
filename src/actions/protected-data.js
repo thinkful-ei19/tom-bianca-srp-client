@@ -52,8 +52,6 @@ export const answerQuestion = (data) => (dispatch, getState) => {
     dispatch(answerQuestionRequest());
     const authToken = getState().auth.authToken;
     const userId = getState().auth.currentUser.id;
-    console.log(userId);
-    console.log(data);
     return fetch(`${API_BASE_URL}/questions`, {
         method: 'PUT',
         body: JSON.stringify({ data }),
@@ -71,4 +69,15 @@ export const answerQuestion = (data) => (dispatch, getState) => {
         })
         .then(res => dispatch(submittedAnswer(res)))
         .catch(err => dispatch(answerQuestionError(err)));
+}
+
+export const CLEAR_RESPONSE = 'CLEAR_RESPONSE';
+export const clearResponseSuccess  = (clear) => ({
+    type: CLEAR_RESPONSE,
+    clear
+})
+
+export const clearResponse = () => (dispatch, getState) => {
+    let clear = getState().protectedData.response.correct
+    dispatch(clearResponseSuccess())
 }

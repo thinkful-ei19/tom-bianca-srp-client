@@ -7,15 +7,13 @@ import sigil from '../assets/img/sigil.jpg'
 import LoginForm from './login-form';
 
 export function LandingPage(props) {
-
-    
     // If we are logged in redirect straight to the user's dashboard
     if (props.loggedIn) {
         return <Redirect to="/dashboard" />;
     }
 
     return (
-     <div className="gif">
+        <div className="gif">
             <div className="home">
                 <h2>DuoDragons<img className="landing-sigil" src={sigil} /> </h2>
                 {/* <img src={logo}/> */}
@@ -23,7 +21,7 @@ export function LandingPage(props) {
                 <br /><br />
                 <Link to="/register">Register</Link>
             </div>
-     </div>
+        </div>
 
     );
 }

@@ -52,8 +52,6 @@ export const answerQuestion = (data) => (dispatch, getState) => {
     dispatch(answerQuestionRequest());
     const authToken = getState().auth.authToken;
     const userId = getState().auth.currentUser.id;
-    console.log(userId);
-    console.log(data);
     return fetch(`${API_BASE_URL}/questions`, {
         method: 'PUT',
         body: JSON.stringify({ data }),

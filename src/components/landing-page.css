@@ -27,3 +27,7 @@ html {
 body {
     margin: 0;
 }
+
+body.noScroll {
+    overflow: hidden;
+}

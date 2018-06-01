@@ -23,12 +23,6 @@ export class Dashboard extends React.Component {
             <div className="dash">
                 <HeaderBar />
                 <div className="dashboard">
-
-                    <div className="dashboard-username">
-                        Welcome: {this.props.name}
-                        <br/>
-                        Score: {this.props.dragons}
-                    </div>
                     <div className="dashboard-protected-data">
                         <QuestionCard question={this.props.protectedData} response={this.props.response} />
                     </div>

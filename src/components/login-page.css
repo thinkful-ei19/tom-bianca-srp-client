@@ -6,6 +6,8 @@
     background-position: center center;
     width: 100vw;
     height: 100vh;
+    padding-left: 100px;
+    padding-top: 50px;
 }
 
 body.noScroll {
@@ -13,6 +15,14 @@ body.noScroll {
 }
 
 body {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
+}
+
+body.noScroll {
+    overflow: hidden;
+}
+
+.welcome {
+    font-size: 30px;
 }

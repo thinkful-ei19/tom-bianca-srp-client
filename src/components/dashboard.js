@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Field, reduxForm, focus, reset } from 'redux-form';
 import Input from './input';
 import requiresLogin from './requires-login';
-import { fetchProtectedData } from '../actions/protected-data';
+import { fetchProtectedData, fetchDragons } from '../actions/protected-data';
 import { QuestionForm } from './question-form';
 import { QuestionCard } from './question-card';
 import FooterBar from './footer-bar';
@@ -15,6 +15,9 @@ export class Dashboard extends React.Component {
     componentDidMount() {
         this.props.dispatch(fetchProtectedData());
     }
+    componentWillUpdate(){
+        this.props.dispatch(fetchDragons());
+    }
     render() {
         return (
             <div className="dash">
@@ -22,7 +25,9 @@ export class Dashboard extends React.Component {
                 <div className="dashboard">
 
                     <div className="dashboard-username">
-                        Username: {this.props.username}
+                        Welcome: {this.props.name}
+                        <br/>
+                        Score: {this.props.dragons}
                     </div>
                     <div className="dashboard-protected-data">
                         <QuestionCard question={this.props.protectedData} response={this.props.response} />
@@ -39,6 +44,7 @@ const mapStateToProps = state => {
     const { currentUser } = state.auth;
     return {
         username: state.auth.currentUser.username,
+        dragons: state.protectedData.dragons,
         name: `${currentUser.fullname}`,
         protectedData: state.protectedData.data,
         response: state.protectedData.response

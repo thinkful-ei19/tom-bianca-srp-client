@@ -2,13 +2,15 @@ import {
     FETCH_PROTECTED_DATA_SUCCESS,
     FETCH_PROTECTED_DATA_ERROR,
     SUBMITTED_ANSWER,
-    CLEAR_RESPONSE
+    CLEAR_RESPONSE,
+    FETCH_DRAGONS_SUCCESS
 } from '../actions/protected-data';
 
 const initialState = {
     data: [],
     error: null,
     response: false,
+    dragons: 0,
 };
 
 export default function reducer(state = initialState, action) {
@@ -31,6 +33,12 @@ export default function reducer(state = initialState, action) {
     if (action.type === CLEAR_RESPONSE) {
         return Object.assign({}, state, {
             response: [],
+            error: null,
+        });
+    }
+    if (action.type === FETCH_DRAGONS_SUCCESS) {
+        return Object.assign({}, state, {
+            dragons: action.data.dragons,
             error: null,
         });
     }

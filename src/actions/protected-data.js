@@ -81,3 +81,26 @@ export const clearResponse = () => (dispatch, getState) => {
     let clear = getState().protectedData.response.correct
     dispatch(clearResponseSuccess())
 }
+
+
+export const FETCH_DRAGONS_SUCCESS = 'FETCH_DRAGONS_SUCCESS';
+export const fetchDragonsSuccess = data => ({
+    type: FETCH_DRAGONS_SUCCESS,
+    data
+});
+
+
+export const fetchDragons = () => (dispatch, getState) => {
+    const authToken = getState().auth.authToken;
+    const userId = getState().auth.currentUser.id;
+    return fetch(`${API_BASE_URL}/users/${userId}`, {
+        method: 'GET',
+        headers: {
+            // Provide our auth token as credentials
+            Authorization: `Bearer ${authToken}`
+
+        }
+    }).then(res => normalizeResponseErrors(res))
+        .then(res => res.json())
+        .then((res) => dispatch(fetchDragonsSuccess(res)))
+};

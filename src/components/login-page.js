@@ -11,7 +11,7 @@ export function LoginPage(props) {
     }
     return (
         <div className="login">
-            <h2>Welcome Back</h2>
+            <h3 className="welcome">Welcome Back</h3>
             <LoginForm />
         </div>
     );

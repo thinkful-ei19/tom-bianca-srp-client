@@ -14,7 +14,7 @@ Check out the live version <a href="https://learn-high-valyrian.netlify.com/"g>h
 </ul>
 <h2>Screen Shots</h2>
 <h3>Logging In</h3>
-<img src="/ScreenShots/loggingin.png" alt="LoggingIn">
+<img src="/Screenshots/loggingin.png" alt="LoggingIn">
 <h3>Answer field and point system </h3>
-<img src="/ScreenShots/insertfield.png" alt="LoggingIn">
+<img src="/Screenshots/insertfield.png" alt="insertfield">
 <br>

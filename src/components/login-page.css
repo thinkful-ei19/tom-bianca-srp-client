@@ -43,8 +43,8 @@ body.noScroll {
 }
 
 .descriptionTitle {
-    color: rgba(255, 0, 0, 1);
-    background-color: rgba(0, 0, 0, 0.5);
+    color: rgb(150, 30, 30);
+    background-color: rgba(215, 212, 212, 0.96);
 }
 
 .descriptionRegister {
@@ -52,7 +52,7 @@ body.noScroll {
 }
 
 .about {
-    background-color: rgba(255, 0, 0, .5);
+    background-color: rgba(238, 68, 68, 0.822);
     /* color: rgba(255, 0, 0, 1); */
     border-radius: 5%;
     font-size: 30px;

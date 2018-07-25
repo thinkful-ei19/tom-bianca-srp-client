@@ -17,9 +17,16 @@ export function LandingPage(props) {
             <div className="home">
                 <h2>DuoDragons<img className="landing-sigil" src={sigil} alt="A three headed red dragon"/> </h2>
                 {/* <img src={logo}/> */}
+            </div>
+                <section className="descriptionBox">
+                <p className='about'>Learn to speak the tongue of the dragon quickly and enhance your knowledge like a maester with our spaced repetition algorithm</p>
+                </section>
+            
+             <div className="home">
                 <Link to="/login">Log In</Link>
                 <br /><br />
                 <Link to="/register">Register</Link>
+                
             </div>
         </div>
 

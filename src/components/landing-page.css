@@ -11,7 +11,7 @@
 
 .gif {
     font-family: MedievalSharp;
-    background-image: url('../assets/img/dragons.gif');
+    background-image: url('../assets/img/Dragonstone.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -30,4 +30,22 @@ body {
 
 body.noScroll {
     overflow: hidden;
+}
+
+.descriptionBox {
+    text-align: center;
+    width: 490px;
+    font-size: 20px;
+    font-weight: 400;
+    float: right;
+    margin: 0;
+    padding: 20px;
+}
+
+.about {
+    background-color: rgba(238, 68, 68, 0.822);
+    /* color: rgba(255, 0, 0, 1); */
+    border-radius: 5%;
+    font-size: 30px;
+    font-weight: bolder;
 }
